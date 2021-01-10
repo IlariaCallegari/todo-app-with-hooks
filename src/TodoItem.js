@@ -13,14 +13,15 @@ import EditTodoForm from "./EditTodoForm";
 import useToggleState from "./Hooks/useToggleState";
 
 function TodoItem({ task, id, completed }) {
-  const {removeTodo, toggleTodo} = useContext(TodosContext)
+  const {dispatch} = useContext(TodosContext)
   const [isEditing, toggleIsEditing] = useToggleState(false);
 
   const handleRemove = () => {
-    removeTodo(id);
+    dispatch({type: "removeTodo", id})
+
   };
   const handleToggle = () => {
-    toggleTodo(id);
+    dispatch({type: "toggleTodo", id})
   };
 
   const listItem = (

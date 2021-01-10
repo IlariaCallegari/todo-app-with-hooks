@@ -4,11 +4,11 @@ import { Paper, TextField } from "@material-ui/core";
 import { TodosContext } from "./Contexts/todosContext";
 
 function TodoForm(props) {
-  const { addTodo } = useContext(TodosContext);
+  const { dispatch } = useContext(TodosContext);
   const [value, handleChange, reset] = useInputState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTodo(value);
+    dispatch({type: "addTodo", task: value});
     reset();
   };
   return (
