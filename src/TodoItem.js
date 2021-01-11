@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, memo} from "react";
 import { DispatchContext } from "./Contexts/todosContext";
 import {
   Checkbox,
@@ -51,4 +51,4 @@ function TodoItem({ task, id, completed }) {
   return <>{isEditing ? editTodoForm : listItem}</>;
 }
 
-export default TodoItem;
+export default memo(TodoItem);
