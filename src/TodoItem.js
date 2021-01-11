@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TodosContext } from "./Contexts/todosContext";
+import { DispatchContext } from "./Contexts/todosContext";
 import {
   Checkbox,
   ListItem,
@@ -13,12 +13,12 @@ import EditTodoForm from "./EditTodoForm";
 import useToggleState from "./Hooks/useToggleState";
 
 function TodoItem({ task, id, completed }) {
-  const {dispatch} = useContext(TodosContext)
+  const dispatch = useContext(DispatchContext)
   const [isEditing, toggleIsEditing] = useToggleState(false);
 
   const handleRemove = () => {
     dispatch({type: "removeTodo", id})
-
+ 
   };
   const handleToggle = () => {
     dispatch({type: "toggleTodo", id})

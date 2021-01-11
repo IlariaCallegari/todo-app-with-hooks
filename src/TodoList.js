@@ -4,7 +4,7 @@ import { Paper, List, Divider } from "@material-ui/core";
 import TodoItem from "./TodoItem";
 
 function TodoList(props) {
-  const { todos } = useContext(TodosContext);
+  const todos = useContext(TodosContext);
   //if there are items on the todo list return items otherwise return null
   if (todos.length)
     return (
